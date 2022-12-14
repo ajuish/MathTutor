@@ -37,7 +37,7 @@ function Login() {
                 // .then(() => navigate("/piano"))
             }
             else {
-                setErrors("Invalid username or password")
+                setErrors("Invalid email  or password")
             }
         })
     }

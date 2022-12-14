@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Topics({count}){
+function Topics(){
     return(
-        <div>{count}</div>
+        <div></div>
     )
 }
 
