@@ -5,7 +5,7 @@ function Login() {
 
     // const navigate = useNavigate()
 
-    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState("")
 
@@ -28,7 +28,7 @@ function Login() {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({ email, password })
         })
         .then(r => {
             if (r.ok) {
@@ -55,7 +55,7 @@ function Login() {
         <div className ="field">
           <div className ="ui left icon input">
             <i className ="envelope icon"></i>
-            <input onChange={(e) => setUsername(e.target.value)} type="text" name="email" placeholder="Username"/>
+            <input onChange={(e) => setEmail(e.target.value)} type="text" name="email" placeholder="Email Address"/>
           </div>
         </div>
         <div className ="field">
