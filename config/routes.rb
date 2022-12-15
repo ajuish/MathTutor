@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :problems
   resources :topics
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -10,7 +11,10 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#destroy"
 
   # topic routes
-  resources :topics, only: [:index]
+  resources :topics, only: [:index, :show]
+
+  # problem routes
+  resources :problems, only: [:index]
 
   # deployment
   get '*path',

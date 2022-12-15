@@ -1,3 +1,5 @@
 class TopicSerializer < ActiveModel::Serializer
-  attributes :concept, :review, :examples, :completed
+  attributes :id, :concept, :review, :examples, :completed
+
+  has_many :problems
 end
