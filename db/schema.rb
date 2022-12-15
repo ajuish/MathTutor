@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_15_184705) do
     t.string "question"
     t.string "answer"
     t.string "solution", default: [], array: true
+    t.integer "topic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

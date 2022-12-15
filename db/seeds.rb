@@ -27,18 +27,18 @@ puts 'Seeding problems...'
 Problem.create(question: 'What is the average of 21, 27, 35, and 17?',
                answer: '25',
                solution: ['(21 + 27 + 35 + 17)/4 = 25'],
-            #    user_id: nil,
-            #    topic_id: 1
+               # user_id: nil,
+               topic_id: 1
                )
 Problem.create(question: 'The average of 3 consecutive numbers is 10. What is the smallest number?',
                answer: '9',
                solution: ['If we say x is the smallest number, the following consecutive numbers would be x+1 and x+2.  We can then setup our equation:  (x + x + 1 + x + 2)/3 = 10.  Combining like terms, we get (3x + 3)/3 = 10.  After multiplying both sides by 3, we have 3x + 3 = 30.  Subtract 3 from both sides to get 3x = 27.  Finally divide by 3 and we have x = 9','When we are trying to find the average of consecutive numbers, the average must be exactly in the middle. Because of this, 10 is the middle number. Therefore, the numbers are 9, 10, and 11; 9 is the smallest number.'],
-            #    user_id: nil,
-            #    topic_id: 1
+               # user_id: nil,
+               topic_id: 1
                )
 Problem.create(question: 'During the semester, Alex has 5 quizzes that are each graded out of 100. If he wants a final average of 90, what is the lowest possible score he can get on a quiz?',
                answer: '50',
                solution: ['We are given that the average of 5 quizzes is 90. From this information, we can find the sum of all Alex\'s scorese. Since (sum of scores)/5 = 90, we can find that the sum of all scores is 450. Next, we want to find the lowest possible score he can get on a single quiz. Assume that Alex gets the highest possible score on the other 4 quizzes. Therefore, on the other 4 quizzes, we assume Alex gets 100 - the total score for these tests would be 400.  Since the sum of all his quizzes must be 450, then 450 - 400 = 50'],
-            #    user_id: nil, 
-            #    topic_id: 1
+               # user_id: nil, 
+               topic_id: 1
                )
