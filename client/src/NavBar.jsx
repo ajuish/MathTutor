@@ -1,13 +1,8 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 
 function NavBar() {
 
-const navigate = useNavigate()
-
-// function navLogin() {
-//     navigate("/login")
-// }
+// const navigate = useNavigate()
 
 // function navPiano() {
 //     navigate("/piano")
@@ -34,9 +29,6 @@ function navLogout(){
       <a class="item" href='/'>
         Home
       </a>
-      {/* <a onClick={navPiano} class="item">
-        Piano
-      </a> */}
       {/* <a onClick={navProfile} class="item">
         Profile
       </a> */}
