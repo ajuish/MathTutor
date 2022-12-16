@@ -1,3 +1,4 @@
 class ProblemSerializer < ActiveModel::Serializer
-  attributes :id, :question, :answer, :solution, :user_id, :topic_id
+  attributes :id, :question, :answer, :solution, :topic_id
+  # :user_id
 end

@@ -23,24 +23,24 @@ function navLogout(){
 
   return (
     <>
-    <div class="ui secondary menu">
-      {/* <h1 className='title'>React Piano</h1> */}
-    <div class="left menu">
-      <a class="item" href='/'>
+    <div className="ui secondary menu">
+      {/* <h1 classNameName='title'>React Piano</h1> */}
+    <div className="left menu">
+      <a className="item" href='/'>
         Home
       </a>
-      {/* <a onClick={navProfile} class="item">
+      {/* <a onClick={navProfile} className="item">
         Profile
       </a> */}
-      <a href='/login' class="item">
+      <a href='/login' className="item">
         Login
       </a>
-      {/* <a onClick={navSignup} class="item">
+      {/* <a onClick={navSignup} className="item">
         Signup
       </a> */}
-      <a onClick={navLogout} class="item" href='/logout'>
+      {/* <a onClick={navLogout} className="item" href='/logout'>
         Logout
-      </a>
+      </a> */}
     </div>
   </div>
   </>
