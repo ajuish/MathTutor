@@ -4,6 +4,7 @@ import {Dropdown} from 'semantic-ui-react'
 function Topics(){
     
     const [allTopics, setAllTopics] = useState([])
+    const [currentTopic, setCurrentTopic] = useState('')
 
     useEffect(() => {
     fetch('/topics')
@@ -11,7 +12,12 @@ function Topics(){
     .then(data => setAllTopics(data))
     }, [])
 
-    const mapConcepts = allTopics.map(subj => ({key: subj.id, text:subj.concept, value:subj.id}))
+    // map topics for dropdown menu
+    const mapTopics = allTopics.map(subj => ({key: subj.id, text:subj.concept, value:subj.id}))
+
+    // grabs selected topic
+    console.log(allTopics.filter(topic => topic.concept === currentTopic))
+    
         // <div>
         //     <div>{subj.concept}</div>
         //     <div>{subj.review}</div>
@@ -20,11 +26,11 @@ function Topics(){
 
     return(
         <Dropdown 
-            onChange={(e)=>console.log(e.target.textContent)} 
+            onChange={(e)=>setCurrentTopic(e.target.textContent)} 
             placeholder="Choose Concept" 
             search 
             selection 
-            options={mapConcepts}
+            options={mapTopics}
         />
     )
 }
