@@ -7,17 +7,20 @@ function Topics(){
     const [currentTopic, setCurrentTopic] = useState('')
 
     useEffect(() => {
-    fetch('/topics')
-    .then(resp => resp.json())
-    .then(data => setAllTopics(data))
+        fetch('/topics')
+        .then(resp => resp.json())
+        .then(data => setAllTopics(data))
     }, [])
 
     // map topics for dropdown menu
     const mapTopics = allTopics.map(subj => ({key: subj.id, text:subj.concept, value:subj.id}))
 
     // grabs selected topic
-    console.log(allTopics.filter(topic => topic.concept === currentTopic))
-    
+    const findTopic = currentTopic ? allTopics.filter(topic => topic.concept === currentTopic) : null
+
+    //use showTopic to write logic to display info
+    const showTopic = findTopic ? <div>{findTopic[0].review}</div> : null
+  
         // <div>
         //     <div>{subj.concept}</div>
         //     <div>{subj.review}</div>
@@ -25,6 +28,7 @@ function Topics(){
         // </div>)
 
     return(
+        <>
         <Dropdown 
             onChange={(e)=>setCurrentTopic(e.target.textContent)} 
             placeholder="Choose Concept" 
@@ -32,6 +36,8 @@ function Topics(){
             selection 
             options={mapTopics}
         />
+        {showTopic}
+        </>
     )
 }
 
