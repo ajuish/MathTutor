@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Dropdown} from 'semantic-ui-react'
+import {v4 as uuidv4} from 'uuid'
 
 function Topics(){
     
@@ -21,7 +22,6 @@ function Topics(){
     // grabs the problems for the topic
     const findProblems = findTopic ? findTopic[0].problems.map(problem => problem.question) : null
 
-    console.log(findProblems)
     //use showTopic to write logic to display info
     const showTopic = findTopic ? 
         <div>
@@ -29,12 +29,17 @@ function Topics(){
             <br></br>
             <div>Examples: </div>
             <ul>
-                {findTopic[0].examples.map(example=> <li>{example}</li>)}
+                {findTopic[0].examples.map(example=> <li key={uuidv4()}>{example}</li>)}
             </ul>
             <br></br>
             <div>Practice Problems: </div>
             <ol>
-                {findProblems.map(question => <li>{question}</li>)}
+                {findProblems.map(question => 
+                    <div key={uuidv4()}>
+                        <li>{question}</li>
+                        <button>Show Answer</button>
+                    </div>
+                )}
             </ol>
         </div> 
         : null
