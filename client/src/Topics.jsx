@@ -17,21 +17,34 @@ function Topics(){
 
     // grabs selected topic
     const findTopic = currentTopic ? allTopics.filter(topic => topic.concept === currentTopic) : null
+   
+    // grabs the problems for the topic
+    const findProblems = findTopic ? findTopic[0].problems.map(problem => problem.question) : null
 
+    console.log(findProblems)
     //use showTopic to write logic to display info
-    const showTopic = findTopic ? <div>{findTopic[0].review}</div> : null
-  
-        // <div>
-        //     <div>{subj.concept}</div>
-        //     <div>{subj.review}</div>
-        //     <ul>{subj.examples.map(example=><li>{example}</li>)}</ul>
-        // </div>)
+    const showTopic = findTopic ? 
+        <div>
+            <div>{findTopic[0].review}</div>
+            <br></br>
+            <div>Examples: </div>
+            <ul>
+                {findTopic[0].examples.map(example=> <li>{example}</li>)}
+            </ul>
+            <br></br>
+            <div>Practice Problems: </div>
+            <ol>
+                {findProblems.map(question => <li>{question}</li>)}
+            </ol>
+        </div> 
+        : null
 
     return(
         <>
         <Dropdown 
             onChange={(e)=>setCurrentTopic(e.target.textContent)} 
-            placeholder="Choose Concept" 
+            placeholder="Choose Concept"
+            value={currentTopic} 
             search 
             selection 
             options={mapTopics}

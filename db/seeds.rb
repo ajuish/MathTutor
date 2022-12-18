@@ -14,7 +14,7 @@ Topic.destroy_all
 puts 'Seeding topics...'
 Topic.create(concept: 'Averages', 
              review: 'To find the average of a set of numbers, add the numbers together, and divide by how many numbers you have. Remember that you can also find the sum of the values by multiplying the average by how many numbers exist.',
-             examples: ['The average of 5 and 9 is 7','The average of 4, 7, and 13 is 18", "If the average of 4 numbers is 6, their sum is 24'],
+             examples: ['The average of 5 and 9 is 7','The average of 4, 7, and 13 is 18.', 'If the average of 4 numbers is 6, their sum is 24'],
              completed: false)
 Topic.create(concept: "Percents",
              review: 'Percents measure an amount of the total. In order to work with percents, you must first convert them to either a percent or a fraction. When you see the word "of", think multiply. ',
