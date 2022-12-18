@@ -20,7 +20,7 @@ function Topics(){
     const findTopic = currentTopic ? allTopics.filter(topic => topic.concept === currentTopic) : null
    
     // grabs the problems for the topic
-    const findProblems = findTopic ? findTopic[0].problems.map(problem => problem.question) : null
+    const findProblems = findTopic ? findTopic[0].problems.map(problem => problem) : null
 
     //use showTopic to write logic to display info
     const showTopic = findTopic ? 
@@ -34,9 +34,9 @@ function Topics(){
             <br></br>
             <div>Practice Problems: </div>
             <ol>
-                {findProblems.map(question => 
+                {findProblems.map(problem => 
                     <div key={uuidv4()}>
-                        <li>{question}</li>
+                        <li>{problem.question}</li>
                         <button>Show Answer</button>
                     </div>
                 )}
