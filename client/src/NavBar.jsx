@@ -9,10 +9,9 @@ const navigate = useNavigate()
 //   navigate("/")
 // }
 
-function navLogout(){
-  sessionStorage.clear()
-  navigate("/")
-}
+// function navLogout(){
+//   sessionStorage.clear()
+// }
 
   return (
     <>
@@ -31,7 +30,7 @@ function navLogout(){
       <a href='/signup' className="item">
         Signup
       </a>
-      <a onClick={navLogout} className="item" href='/logout'>
+      <a onClick={()=>sessionStorage.clear()} className="item" href='/'>
         Logout
       </a>
     </div>
