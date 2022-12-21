@@ -1,9 +1,9 @@
 import React from 'react'
-import {useNavigate} from 'react-router-dom'
+// import {useNavigate} from 'react-router-dom'
 
 function NavBar() {
 
-const navigate = useNavigate()
+// const navigate = useNavigate()
 
 // function navHome() {
 //   navigate("/")
