@@ -1,21 +1,21 @@
-import React, { useState } from 'react'
-// import { useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState("")
 
-    // const currentUser = sessionStorage.getItem("user_id")
+    const currentUser = sessionStorage.getItem("user_id")
 
-    // useEffect(() => {
-    //   if (currentUser) {
-    //    navigate("/piano")
-    //   } 
-    // },[currentUser, navigate])
+    useEffect(() => {
+      if (currentUser) {
+       navigate("/topics")
+      } 
+    },[currentUser, navigate])
 
     // function handleSignup() {
     //   navigate("/signup")
@@ -34,7 +34,7 @@ function Login() {
             if (r.ok) {
                 r.json()
                 .then(data => window.sessionStorage.setItem("user_id", data.id))
-                // .then(() => navigate("/piano"))
+                .then(() => navigate("/topics"))
             }
             else {
                 setErrors("Invalid email or password")

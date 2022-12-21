@@ -6,6 +6,7 @@ function Topics(){
     
     const [allTopics, setAllTopics] = useState([])
     const [currentTopic, setCurrentTopic] = useState('')
+    
 
     useEffect(() => {
         fetch('/topics')
@@ -22,9 +23,15 @@ function Topics(){
     // grabs the problems for the topic
     const findProblems = findTopic ? findTopic[0].problems.map(problem => problem) : null
 
+    function onSubmitAnswer(e){
+        e.preventDefault()
+        console.log(e.target.value)
+
+    }
     //use showTopic to write logic to display info
     const showTopic = findTopic ? 
         <div>
+            <h1>{findTopic[0].concept}</h1>
             <div>{findTopic[0].review}</div>
             <br></br>
             <div>Examples: </div>
@@ -37,7 +44,10 @@ function Topics(){
                 {findProblems.map(problem => 
                     <div key={uuidv4()}>
                         <li>{problem.question}</li>
-                        <button>Show Answer</button>
+                        <form>
+                            <input type='text'/>
+                            <button onSubmit={e => onSubmitAnswer(e)}>Submit Answer</button>
+                        </form>
                     </div>
                 )}
             </ol>

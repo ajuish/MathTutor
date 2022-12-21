@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
 
+  # user routes
+  post '/signup', to: "users#create"
+  
   # topic routes
   resources :topics, only: [:index, :show]
 

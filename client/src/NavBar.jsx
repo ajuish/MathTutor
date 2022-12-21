@@ -1,12 +1,9 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom'
 
 function NavBar() {
 
-// const navigate = useNavigate()
-
-// function navPiano() {
-//     navigate("/piano")
-// }
+const navigate = useNavigate()
 
 // function navHome() {
 //   navigate("/")
@@ -14,12 +11,8 @@ function NavBar() {
 
 function navLogout(){
   sessionStorage.clear()
-//   navigate("/")
+  navigate("/")
 }
-
-// function navProfile(){
-//   navigate('/profile')
-// }
 
   return (
     <>
@@ -35,12 +28,12 @@ function navLogout(){
       <a href='/login' className="item">
         Login
       </a>
-      {/* <a onClick={navSignup} className="item">
+      <a href='/signup' className="item">
         Signup
-      </a> */}
-      {/* <a onClick={navLogout} className="item" href='/logout'>
+      </a>
+      <a onClick={navLogout} className="item" href='/logout'>
         Logout
-      </a> */}
+      </a>
     </div>
   </div>
   </>
