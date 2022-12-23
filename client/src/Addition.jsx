@@ -1,16 +1,23 @@
 import React, {useState, useEffect} from 'react'
 
+function getRandomInt(max){
+    return Math.floor(Math.random() * max)
+ }
+
+const num1 = getRandomInt(100)
+const num2 = getRandomInt(100)
+
 function Addition(){
 
     const [answer, setAnswer] = useState('')
     const [userAnswer, setUserAnswer] = useState('')
     
-    function getRandomInt(max){
-       return Math.floor(Math.random() * max)
-    }
+    // function getRandomInt(max){
+    //    return Math.floor(Math.random() * max)
+    // }
 
-    const num1 = getRandomInt(100)
-    const num2 = getRandomInt(100)
+    // const num1 = getRandomInt(100)
+    // const num2 = getRandomInt(100)
 
     useEffect(()=> {
         fetch(`https://newton.now.sh/api/v2/simplify/${num1 + num2}`)
@@ -33,16 +40,17 @@ function Addition(){
 return (
     <>
     <div>{num1} + {num2}</div>
-    <form onSubmit={findSolution}>
+    <form onSubmit={(e)=>findSolution(e)}>
         <input 
             type='text' 
             placeholder='Enter Answer' 
-            // value={userAnswer} 
-            // onChange={(e)=> setUserAnswer(e.target.value)}
+            value={userAnswer} 
+            onChange={(e)=>setUserAnswer(e.target.value)}
         />
         <input type='submit' value='Submit'/>
     </form>
     <button onClick={newQuestion}>new question</button>
+    <div>{answer}</div>
     </>
 )
 }
