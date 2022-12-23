@@ -24,7 +24,6 @@ function Topics(){
     const findProblems = findTopic ? findTopic[0].problems.map(problem => problem) : null
 
     function onSubmitAnswer(e){
-        e.preventDefault()
         console.log(e.target.value)
 
     }
@@ -44,10 +43,7 @@ function Topics(){
                 {findProblems.map(problem => 
                     <div key={uuidv4()}>
                         <li>{problem.question}</li>
-                        <form>
-                            <input type='text'/>
-                            <button onSubmit={e => onSubmitAnswer(e)}>Submit Answer</button>
-                        </form>
+                        <button value={problem.id} onClick={(e)=>onSubmitAnswer(e)}>Click Me</button>
                     </div>
                 )}
             </ol>
