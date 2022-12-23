@@ -30,7 +30,13 @@ function Addition(){
     //write logic to check and keep track of correct answers
    function findSolution(e){
         e.preventDefault()
-        
+
+        answer === userAnswer ? console.log('Correct') : console.log('Incorrect')
+        // if (answer === userAnswer){
+        //     console.log('Correct')
+        // }
+        //     else
+        //     console.log('Incorrect')
    }
 
    function newQuestion(){
