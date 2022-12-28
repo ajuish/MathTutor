@@ -1,14 +1,27 @@
 import React, {useState} from 'react'
-import {Dropdown} from 'semantic-ui-react'
+import {Dropdown, Card} from 'semantic-ui-react'
 import Solve from './Solve'
 
 function Fundamentals(){
 
     const [num1, setNum1] = useState(getRandomInt(100))
     const [num2, setNum2] = useState(getRandomInt(100))
-   //  const [currentOperation, setCurrentOperation] = useState('')
+    const [currentOperation, setCurrentOperation] = useState('')
     const [symbol, setSymbol] = useState('')
-    const question = `${num1} ${symbol} ${num2}`
+   //  const question = `${num1} ${symbol} ${num2}`
+
+   let question
+
+   if (currentOperation === 'Subtraction'){
+      if (num2 > num1){
+         question = `${num2} ${symbol} ${num1}`
+      }
+      else {
+         question = `${num1} ${symbol} ${num2}`
+      }
+   }
+   else 
+      {question = `${num1} ${symbol} ${num2}`}
     
     const operations = [
       {
@@ -38,10 +51,10 @@ function Fundamentals(){
      }
 
      return (
-         <>
+         <Card>
             <Dropdown 
                onChange={(e, data)=>{
-                  // setCurrentOperation(e.target.textContent)
+                  setCurrentOperation(e.target.textContent)
                   setSymbol(data.value)
                }}
                placeholder="Choose Concept"
@@ -51,7 +64,7 @@ function Fundamentals(){
                options={operations}
             />
             <Solve setNum1={setNum1} setNum2={setNum2} getRandomInt={getRandomInt} question={question}/>
-         </>
+         </Card>
      )
 }
 

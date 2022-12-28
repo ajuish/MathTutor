@@ -46,8 +46,10 @@ function Solve({setNum1, setNum2, getRandomInt, question}){
 //    }
 
 return (
-    <>
+    <div>
+        <br></br>
         <div>{question}</div>
+        <br></br>
         <form onSubmit={(e)=>findSolution(e)}>
             <input 
                 type='text' 
@@ -57,7 +59,7 @@ return (
             />
             <input type='submit' value='Submit'/>
         </form>
-    </>
+    </div>
 )
 }
 
