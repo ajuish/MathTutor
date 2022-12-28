@@ -1,17 +1,9 @@
 import React, {useState, useEffect} from 'react'
 
-// function getRandomInt(max){
-//     return Math.floor(Math.random() * max)
-//  }
-
-// const num1 = getRandomInt(100)
-// const num2 = getRandomInt(100)
-
-function Addition({setNum1, setNum2, getRandomInt, addQ}){
+function Addition({setNum1, setNum2, getRandomInt, question}){
 
     // const [num1, setNum1] = useState(getRandomInt(100))
     // const [num2, setNum2] = useState(getRandomInt(100))
-    // const [answer, setAnswer] = useState(num1 + num2)
     const [userAnswer, setUserAnswer] = useState('')
     const [score, setScore] = useState(0)
     const [total, setTotal] = useState(0)
@@ -30,7 +22,7 @@ function Addition({setNum1, setNum2, getRandomInt, addQ}){
    function findSolution(e){
         e.preventDefault()
 
-        if (eval(addQ) === Number(userAnswer)){
+        if (eval(question) === Number(userAnswer)){
             console.log('Correct')
             setScore(score + 1)
             setTotal(total + 1)
@@ -46,8 +38,8 @@ function Addition({setNum1, setNum2, getRandomInt, addQ}){
        setUserAnswer('')
      }
     
-   console.log('score:', score)
-   console.log('total:', total)
+//    console.log('score:', score)
+//    console.log('total:', total)
 
 //    function newQuestion(){
 //         window.location.reload(false)
@@ -55,7 +47,7 @@ function Addition({setNum1, setNum2, getRandomInt, addQ}){
 
 return (
     <>
-        <div>{addQ}</div>
+        <div>{question}</div>
         <form onSubmit={(e)=>findSolution(e)}>
             <input 
                 type='text' 
