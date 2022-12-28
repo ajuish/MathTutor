@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-function Addition({setNum1, setNum2, getRandomInt, question}){
+function Solve({setNum1, setNum2, getRandomInt, question}){
 
     // const [num1, setNum1] = useState(getRandomInt(100))
     // const [num2, setNum2] = useState(getRandomInt(100))
@@ -38,8 +38,8 @@ function Addition({setNum1, setNum2, getRandomInt, question}){
        setUserAnswer('')
      }
     
-//    console.log('score:', score)
-//    console.log('total:', total)
+   console.log('score:', score)
+   console.log('total:', total)
 
 //    function newQuestion(){
 //         window.location.reload(false)
@@ -61,4 +61,4 @@ return (
 )
 }
 
-export default Addition
+export default Solve
