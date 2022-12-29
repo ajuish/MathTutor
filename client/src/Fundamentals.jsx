@@ -22,7 +22,7 @@ function Fundamentals(){
    }
    else 
       {question = `${num1} ${symbol} ${num2}`}
-    
+
     const operations = [
       {
          key: 'Addition',
@@ -51,7 +51,8 @@ function Fundamentals(){
      }
 
      return (
-         <Card>
+      <div className='container'>
+         <Card className='ui centered grid bottom aligned content'>
             <Dropdown 
                onChange={(e, data)=>{
                   setCurrentOperation(e.target.textContent)
@@ -65,6 +66,7 @@ function Fundamentals(){
             />
             <Solve setNum1={setNum1} setNum2={setNum2} getRandomInt={getRandomInt} question={question}/>
          </Card>
+      </div>
      )
 }
 
