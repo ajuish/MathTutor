@@ -1,5 +1,14 @@
 class UsersController < ApplicationController
 
+    def index
+        render json: User.all, status: :ok
+    end
+
+    def show
+        user = User.find(params[:id])
+        render json: user, status: :ok
+    end
+
     def create
         user = User.create(user_params)
         if user.valid?
@@ -10,6 +19,12 @@ class UsersController < ApplicationController
         end
     end
 
+    def update
+        user = User.find(params[:id])
+        user.update(user_params)
+        render json: user, status: :accepted
+    end
+
     private
 
     def authorize
@@ -17,6 +32,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.permit(:email, :password, :password_confirmation)
+        params.permit(:email, :password, :password_confirmation, :addition => [], :subtraction => [], :multiplication => [], :division => [])
     end
 end

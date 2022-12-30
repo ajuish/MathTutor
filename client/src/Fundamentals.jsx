@@ -80,7 +80,21 @@ function Fundamentals(){
      setUserAnswer('')
    }
 
-     return (
+   function saveScore(){
+      const user_id = sessionStorage.getItem('user_id')
+
+      fetch(`/users/${user_id}`, {
+         method: 'PATCH', 
+         headers: {
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(score)
+      })
+      .then(resp=>resp.json())
+      .then(data=>console.log(data))
+   }
+
+   return (
       <div>
          <Card className='ui centered grid'>
             <Dropdown 
@@ -111,6 +125,7 @@ function Fundamentals(){
                <br></br>
             </div>
             {/* <Solve setNum1={setNum1} setNum2={setNum2} getRandomInt={getRandomInt} question={question}/> */}
+            <button onClick={saveScore}> Save Score</button>
          </Card>
          {/* <Form>
                <Form.Field>
@@ -134,7 +149,7 @@ function Fundamentals(){
             </Form> */}
             {/* <div>{currentOperation ? score[currentOperation][0] : null}</div> */}
       </div>
-     )
+   )
 }
 
 export default Fundamentals
