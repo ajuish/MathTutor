@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {Dropdown, Card, Form, Radio} from 'semantic-ui-react'
-// import Solve from './Solve'
 
 function Fundamentals(){
 
@@ -16,8 +15,6 @@ function Fundamentals(){
          multiplication:[0,0],
          division: [0,0]
       })
-   // const [total, setTotal] = useState(0)
-   //  const question = `${num1} ${symbol} ${num2}`
 
    //dropdown array
    const operations = [
@@ -67,14 +64,14 @@ function Fundamentals(){
       e.preventDefault()
 
       if (eval(question) === Number(userAnswer)){
-         // console.log('Correct')
+         //runs if answer is correct
          score[currentOperation] = [score[currentOperation][0]+1, score[currentOperation][1]+1]
-         // setTotal(total + 1)
+         setScore(score)
       }
       else {
-         // console.log('Incorrect')
-         // setTotal(total + 1)
+         //runs if answer is incorrect
          score[currentOperation] = [score[currentOperation][0], score[currentOperation][1]+1]
+         setScore(score)
       }
 
      setNum1(getRandomInt(100))
@@ -88,7 +85,6 @@ function Fundamentals(){
          <Card className='ui centered grid'>
             <Dropdown 
                onChange={(e, data)=>{
-                  console.log(score)
                   setCurrentOperation(e.target.textContent.toLowerCase())
                   // saveScore(e.target.textContent)
                   setSymbol(data.value)
@@ -101,7 +97,7 @@ function Fundamentals(){
             />
             <div>
                <br></br>
-               <div>{question}</div>
+               <div>{symbol? question : null}</div>
                <br></br>
                <form onSubmit={(e)=>findSolution(e)}>
                      <input 
@@ -136,6 +132,7 @@ function Fundamentals(){
                   />
                </Form.Field>
             </Form> */}
+            {/* <div>{currentOperation ? score[currentOperation][0] : null}</div> */}
       </div>
      )
 }

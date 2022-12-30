@@ -6,7 +6,6 @@ import Login from './Login'
 import NavBar from './NavBar'
 import Signup from './Signup'
 import Fundamentals from './Fundamentals'
-import Addition from './Solve'
 
 function App() {
 
