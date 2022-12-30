@@ -6,11 +6,16 @@ function Fundamentals(){
 
    const [num1, setNum1] = useState(getRandomInt(100))
    const [num2, setNum2] = useState(getRandomInt(100))
-   // const [currentOperation, setCurrentOperation] = useState('')
+   const [currentOperation, setCurrentOperation] = useState('')
    const [symbol, setSymbol] = useState('')
    //  const [digits, setDigits] = useState('')
    const [userAnswer, setUserAnswer] = useState('')
-   const [score, setScore] = useState(0)
+   const [score, setScore] = useState({
+         addition: [0,0],
+         subtraction:[0,0],
+         multiplication:[0,0],
+         division: [0,0]
+      })
    // const [total, setTotal] = useState(0)
    //  const question = `${num1} ${symbol} ${num2}`
 
@@ -63,20 +68,19 @@ function Fundamentals(){
 
       if (eval(question) === Number(userAnswer)){
          // console.log('Correct')
-         setScore(score + 1)
-         setTotal(total + 1)
+         score[currentOperation] = [score[currentOperation][0]+1, score[currentOperation][1]+1]
+         // setTotal(total + 1)
       }
       else {
          // console.log('Incorrect')
-         setTotal(total + 1)
+         // setTotal(total + 1)
+         score[currentOperation] = [score[currentOperation][0], score[currentOperation][1]+1]
       }
 
      setNum1(getRandomInt(100))
      setNum2(getRandomInt(100))
      
      setUserAnswer('')
-   
-
    }
 
      return (
@@ -84,6 +88,8 @@ function Fundamentals(){
          <Card className='ui centered grid'>
             <Dropdown 
                onChange={(e, data)=>{
+                  console.log(score)
+                  setCurrentOperation(e.target.textContent.toLowerCase())
                   // saveScore(e.target.textContent)
                   setSymbol(data.value)
                }}
