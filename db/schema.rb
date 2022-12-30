@@ -35,6 +35,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_15_184705) do
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
+    t.string "addition", default: [], array: true
+    t.string "subtraction", default: [], array: true
+    t.string "multiplication", default: [], array: true
+    t.string "division", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
