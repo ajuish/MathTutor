@@ -3,16 +3,6 @@ import React from 'react'
 
 function NavBar() {
 
-// const navigate = useNavigate()
-
-// function navHome() {
-//   navigate("/")
-// }
-
-// function navLogout(){
-//   sessionStorage.clear()
-// }
-
   return (
     <>
     <div className="ui secondary menu">
@@ -26,9 +16,6 @@ function NavBar() {
       </a> */}
       <a href='/login' className="item">
         Login
-      </a>
-      <a href='/signup' className="item">
-        Signup
       </a>
       <a onClick={()=>sessionStorage.clear()} className="item" href='/'>
         Logout

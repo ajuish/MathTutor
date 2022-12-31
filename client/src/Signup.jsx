@@ -84,7 +84,7 @@ function Signup() {
               />
             </div>
           </div>
-          <div onClick={signupClick} className="ui fluid large teal submit button">Submit</div>
+          <div onClick={signupClick} className="ui fluid large blue submit button">Submit</div>
         </div>
       </form>
     </>

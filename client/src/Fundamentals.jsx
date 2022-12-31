@@ -125,7 +125,7 @@ function Fundamentals(){
                <br></br>
             </div>
             {/* <Solve setNum1={setNum1} setNum2={setNum2} getRandomInt={getRandomInt} question={question}/> */}
-            <button onClick={saveScore}> Save Score</button>
+            <div className='ui blue submit button' onClick={saveScore}> Save Score</div>
          </Card>
          {/* <Form>
                <Form.Field>

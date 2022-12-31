@@ -44,35 +44,31 @@ function Login() {
 
   return (
     <div className ="ui middle aligned center aligned grid">
-  <div className ="column">
-    <h2 className ="ui teal image header">
-      <div className ="content">
-        Log-in to your account
-      </div>
-    </h2>
-    <form className ="ui large form">
-      <div className ="ui stacked segment">
-        <div className ="field">
-          <div className ="ui left icon input">
-            <i className ="envelope icon"></i>
-            <input onChange={(e) => setEmail(e.target.value)} type="text" name="email" placeholder="Email Address"/>
-          </div>
+      <div className ="column">
+        <h2 className ="ui blue image header">
+        <div className ="content">
+          Log-in to your account
         </div>
-        <div className ="field">
-          <div className ="ui left icon input">
-            <i className ="lock icon"></i>
-            <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" placeholder="Password"/>
+        </h2>
+        <form className ="ui large form">
+        <div className ="ui stacked segment">
+          <div className ="field">
+            <div className ="ui left icon input">
+              <i className ="envelope icon"></i>
+              <input onChange={(e) => setEmail(e.target.value)} type="text" name="email" placeholder="Email Address"/>
+            </div>
           </div>
+          <div className ="field">
+            <div className ="ui left icon input">
+              <i className ="lock icon"></i>
+              <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" placeholder="Password"/>
+            </div>
+          </div>
+           <div onClick={handleLogIn} className ="ui fluid large blue submit button">Login</div>
         </div>
-        <div 
-        onClick={handleLogIn}
-        className ="ui fluid large teal submit button">Login</div>
-      </div>
+        <div onClick={()=>navigate('/signup')} className="ui submit button">Don't have an account? Sign Up</div>
       {/* <div className ="ui error message"></div> */}
     </form>
-    {/* <div className ="ui message">
-      New to us? <a onClick={handleSignup}>Sign Up</a>
-    </div> */}
       <h3 className="error">{errors}</h3>
   </div>
 </div>
