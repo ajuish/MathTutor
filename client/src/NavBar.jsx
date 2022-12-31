@@ -14,6 +14,12 @@ function NavBar() {
       {/* <a onClick={navProfile} className="item">
         Profile
       </a> */}
+      <a href='/topics' className="item">
+        Topics
+      </a>
+      <a href='/fundamentals' className="item">
+        Fundamentals
+      </a>
       <a href='/login' className="item">
         Login
       </a>
