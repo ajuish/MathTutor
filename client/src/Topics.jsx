@@ -29,8 +29,9 @@ function Topics(){
     }
     //use showTopic to write logic to display info
     const showTopic = findTopic ? 
-        <div>
-            <h1>{findTopic[0].concept}</h1>
+        <div className='ui container'>
+            <h1  className='ui centered grid'>{findTopic[0].concept}</h1>
+            <br></br>
             <div>{findTopic[0].review}</div>
             <br></br>
             <div>Examples: </div>
@@ -51,17 +52,23 @@ function Topics(){
         : null
 
     return(
-        <>
-        <Dropdown 
-            onChange={(e)=>setCurrentTopic(e.target.textContent)} 
-            placeholder="Choose Concept"
-            value={currentTopic} 
-            search 
-            selection 
-            options={mapTopics}
-        />
-        {showTopic}
-        </>
+        <div className='ui container'>
+            <div className='ui centered grid'>
+                <Dropdown 
+                    onChange={(e)=>setCurrentTopic(e.target.textContent)} 
+                    placeholder="Choose Concept"
+                    value={currentTopic} 
+                    search 
+                    selection 
+                    options={mapTopics}
+                />
+            </div>
+            <br></br>
+            <br></br>
+            <div  className='ui container'>
+                {showTopic}
+            </div>
+        </div>
     )
 }
 
