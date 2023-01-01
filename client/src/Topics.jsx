@@ -65,7 +65,7 @@ function Topics(){
             </div>
             <br></br>
             <br></br>
-            <div>
+            <div className='ui stacked segment'>
                 {showTopic ? 
                     <div  className='ui container'> {showTopic} </div> :
                     <h1 className='ui centered grid'>Select a Concept</h1>
