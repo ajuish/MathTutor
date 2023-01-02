@@ -45,15 +45,15 @@ Problem.create(question: 'During the semester, Alex has 5 quizzes that are each 
 
 # Percent Problems
 Problem.create(question: 'What is 30% of 20?',
-               answer: '6%',
+               answer: '6',
                solution: ['0.3(20) = 6'],
                topic_id: 2)
 Problem.create(question: 'What is 40% more than 30?',
-               answer: '42%',
+               answer: '42',
                solution: ['40% more than 30 is equivalent to 140% of 30 ==> 1.4(30) = 42'],
                topic_id: 2)
 Problem.create(question: 'What is 60% less than 50?',
-               answer: '20%',
+               answer: '20',
                solution: ['60% less than 50 is equivalent to 40% of 50 ==> 0.4(50) = 20'],
                topic_id: 2)
 Problem.create(question: 'A number increases from 40 to 50. What is the overall percent increase?',
