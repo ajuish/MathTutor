@@ -81,14 +81,6 @@ function Topics(){
                 <div style={{color:'red', fontWeight:'bold'}}>{answerResult}</div>
             </Card>
 
-            {/* <ol>
-                {findProblems.map(problem => 
-                    <div key={uuidv4()}>
-                        <li>{problem.question}</li>
-                        <button value={problem.id} onClick={(e)=>onSubmitAnswer(e)}>Click Me</button>
-                    </div>
-                )}
-            </ol> */}
         </div> 
         : null
 

@@ -7,7 +7,7 @@ function Fundamentals(){
    const [num2, setNum2] = useState(getRandomInt(10))
    const [currentOperation, setCurrentOperation] = useState('')
    const [symbol, setSymbol] = useState('')
-   const [digits, setDigits] = useState('')
+   const [digits, setDigits] = useState(10)
    const [userAnswer, setUserAnswer] = useState('')
    const [score, setScore] = useState({
          addition: [0,0],
