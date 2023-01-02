@@ -44,12 +44,12 @@ function Topics(){
             <br></br>
             <div>{findTopic[0].review}</div>
             <br></br>
-            <div>Examples: </div>
+            <h3>Examples: </h3>
             <ul>
                 {findTopic[0].examples.map(example=> <li key={uuidv4()}>{example}</li>)}
             </ul>
             <br></br>
-            <div>Practice Problems: </div>
+            <h3>Practice Problems: </h3>
             {findProblems.map((problem, index) =>
                 <div 
                     className='ui blue submit button' 
