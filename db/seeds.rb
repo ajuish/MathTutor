@@ -17,8 +17,8 @@ Topic.create(concept: 'Averages',
              examples: ['The average of 5 and 9 is 7','The average of 4, 7, and 13 is 18.', 'If the average of 4 numbers is 6, their sum is 24'],
              completed: false)
 Topic.create(concept: "Percents",
-             review: 'Percents measure an amount of the total. In order to work with percents, you must first convert them to either a percent or a fraction. When you see the word "of", think multiply. ',
-             examples: ['30% can be written as 0.30 or 30/100', '5% can be written as 0.05 or 5/100'],
+             review: 'Percents are used to measure a proportion of the total amount. In order to work with percents, it is easiest to first convert them into decimals. Think of 100% as the starting amount.  Therefore, when we see percent increase or decrease, adjust from the initial 100% to find the new percentage of the original amount. When you see the word "of", think multiply. When a question asks for the total percent increase or decrease find the total change divided by the original amount and convert the decimal into a percentage.',
+             examples: ['30% can be written as 0.30', '5% can be written as 0.05', '25% of 12 written as an expression is 0.25(12) = 3', '50% more than 30 is equivalent to 150% of 30 or 1.5(30) = 45'],
              completed: false)
 
 puts 'Seeding problems...'
@@ -42,3 +42,29 @@ Problem.create(question: 'During the semester, Alex has 5 quizzes that are each 
                # user_id: nil, 
                topic_id: 1
                )
+
+# Percent Problems
+Problem.create(question: 'What is 30% of 20?',
+               answer: '6%',
+               solution: ['0.3(20) = 6'],
+               topic_id: 2)
+Problem.create(question: 'What is 40% more than 30?',
+               answer: '42%',
+               solution: ['40% more than 30 is equivalent to 140% of 30 ==> 1.4(30) = 42'],
+               topic_id: 2)
+Problem.create(question: 'What is 60% less than 50?',
+               answer: '20%',
+               solution: ['60% less than 50 is equivalent to 40% of 50 ==> 0.4(50) = 20'],
+               topic_id: 2)
+Problem.create(question: 'A number increases from 40 to 50. What is the overall percent increase?',
+               answer: '25%',
+               solution: ['First find how much the value changed 50 - 40 = 10. Then, to find percent increase, divide the change by the original amount.  10/40 = 0.25 and change it to a percentage 0.25 * 100 = 25%'],
+               topic_id: 2)
+Problem.create(question:'What is the percent change from 80 to 50?',
+               answer: '37.5%',
+               solution: ['Here, our original amount is 80 and the new value is 50. Therefore, our change is 30. 30/80 = 0.375  or 37.5%'],
+               topic_id: 2)
+Problem.create(question: 'A number is increased by 20% and then decreased by 20%. What is the overall percent  change?',
+               answer: '4%',
+               solution: ['This is a bit of a trick question. The number is increased by 20%, and then the RESULT is decreased by 20%, which means when we decrease we\'re actually basing the percentage on the new, larger value. It actually does not matter what the original value is, so we can set it as the variable X (or use 100 if you prefer).  First we increase X by 20% ==> 1.2X and then decrease it by 20% ==>  0.8(1.2X) = 0.96X or 96% of the starting value. Because we only have 96% of the original, we lost 4% - remember to think of 100% as the starting amount'],
+               topic_id: 2)
