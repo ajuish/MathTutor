@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from 'react'
-import {Dropdown} from 'semantic-ui-react'
+import {Dropdown, Card} from 'semantic-ui-react'
 import {v4 as uuidv4} from 'uuid'
 
 function Topics(){
     
     const [allTopics, setAllTopics] = useState([])
     const [currentTopic, setCurrentTopic] = useState('')
-    
+    const [currentProblem, setCurrentProblem] = useState({})
+    const [userAnswer, setUserAnswer] = useState('')
+    const [answerResult, setAnswerResult] = useState('')
 
     useEffect(() => {
         fetch('/topics')
@@ -23,10 +25,18 @@ function Topics(){
     // grabs the problems for the topic
     const findProblems = findTopic ? findTopic[0].problems.map(problem => problem) : null
 
-    function onSubmitAnswer(e){
-        console.log(e.target.value)
+    //checks answer to practice problems
+    function checkAnswer(e){
+        e.preventDefault()
 
+        if (userAnswer === currentProblem.answer)
+            setAnswerResult('Correct')
+        else
+            setAnswerResult('Incorrect, Try Again')
+        
+        console.log(currentProblem.solution)
     }
+
     //use showTopic to write logic to display info
     const showTopic = findTopic ? 
         <div className='ui container'>
@@ -40,14 +50,45 @@ function Topics(){
             </ul>
             <br></br>
             <div>Practice Problems: </div>
-            <ol>
+            {findProblems.map((problem, index) =>
+                <div 
+                    className='ui blue submit button' 
+                    onClick={()=>{
+                        setCurrentProblem(problem)
+                        setAnswerResult('')
+                        setUserAnswer('')
+                        }} 
+                    key={uuidv4()}
+                >
+                    Problem {index+1}
+                </div>
+            )}
+
+            {/* displays practice problems on click */}
+            <Card className='ui centered grid stacked segment'>
+                <div>{currentProblem.question}</div>
+                <br></br> 
+                <form onSubmit={(e)=>checkAnswer(e)}>
+                    <input 
+                        type='text' 
+                        placeholder='Enter Answer' 
+                        value={userAnswer} 
+                        onChange={(e)=>setUserAnswer(e.target.value)}
+                    />
+                    <input type='submit' value='Submit'/>
+                </form>
+                <br></br>
+                <div style={{color:'red', fontWeight:'bold'}}>{answerResult}</div>
+            </Card>
+
+            {/* <ol>
                 {findProblems.map(problem => 
                     <div key={uuidv4()}>
                         <li>{problem.question}</li>
                         <button value={problem.id} onClick={(e)=>onSubmitAnswer(e)}>Click Me</button>
                     </div>
                 )}
-            </ol>
+            </ol> */}
         </div> 
         : null
 
@@ -55,7 +96,10 @@ function Topics(){
         <div className='ui container'>
             <div className='ui centered grid'>
                 <Dropdown 
-                    onChange={(e)=>setCurrentTopic(e.target.textContent)} 
+                    onChange={(e)=>{
+                        setCurrentTopic(e.target.textContent)
+                        setCurrentProblem({})
+                    }} 
                     placeholder="Choose Concept"
                     value={currentTopic} 
                     search 
@@ -63,7 +107,7 @@ function Topics(){
                     options={mapTopics}
                 />
             </div>
-            <br></br>
+            {/* <br></br> */}
             <br></br>
             <div className='ui stacked segment'>
                 {showTopic ? 
