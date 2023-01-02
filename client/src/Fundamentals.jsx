@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
-import {Dropdown, Card, Form, Radio} from 'semantic-ui-react'
+import {Dropdown, Card} from 'semantic-ui-react'
 
 function Fundamentals(){
 
-   const [num1, setNum1] = useState(getRandomInt(100))
-   const [num2, setNum2] = useState(getRandomInt(100))
+   const [num1, setNum1] = useState(getRandomInt(10))
+   const [num2, setNum2] = useState(getRandomInt(10))
    const [currentOperation, setCurrentOperation] = useState('')
    const [symbol, setSymbol] = useState('')
-   //  const [digits, setDigits] = useState('')
+   const [digits, setDigits] = useState('')
    const [userAnswer, setUserAnswer] = useState('')
    const [score, setScore] = useState({
          addition: [0,0],
@@ -74,8 +74,8 @@ function Fundamentals(){
          setScore(score)
       }
 
-     setNum1(getRandomInt(100))
-     setNum2(getRandomInt(100))
+     setNum1(getRandomInt(digits))
+     setNum2(getRandomInt(digits))
      
      setUserAnswer('')
    }
@@ -127,27 +127,13 @@ function Fundamentals(){
             {/* <Solve setNum1={setNum1} setNum2={setNum2} getRandomInt={getRandomInt} question={question}/> */}
             <div className='ui blue submit button' onClick={saveScore}> Save Score</div>
          </Card>
-         {/* <Form>
-               <Form.Field>
-                  <Radio
-                     label='Single Digits'
-                     name='radioGroup'
-                     value='single'
-                     checked='single'
-                     onChange={(e, data)=>console.log(data.value)}
-                  />
-               </Form.Field>
-               <Form.Field>
-                  <Radio
-                     label='Two Digits'
-                     name='radioGroup'
-                     value='double'
-                     checked='double'
-                     onChange={(e, data)=>console.log(data.value)}
-                  />
-               </Form.Field>
-            </Form> */}
-            {/* <div>{currentOperation ? score[currentOperation][0] : null}</div> */}
+         <div onChange={(e)=> setDigits(Number(e.target.value))}>
+            <input type='radio' value='10' name='digits'/> Single Digits
+            <br></br>
+            <input type='radio' value='100' name='digits'/> Two Digits
+            <br></br>
+            <input type='radio' value='1000' name='digits'/> Three Digits
+         </div>
       </div>
    )
 }
