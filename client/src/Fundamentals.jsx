@@ -127,13 +127,18 @@ function Fundamentals(){
             {/* <Solve setNum1={setNum1} setNum2={setNum2} getRandomInt={getRandomInt} question={question}/> */}
             <div className='ui blue submit button' onClick={saveScore}> Save Score</div>
          </Card>
-         <div onChange={(e)=> setDigits(Number(e.target.value))}>
-            <input type='radio' value='10' name='digits'/> Single Digits
-            <br></br>
-            <input type='radio' value='100' name='digits'/> Two Digits
-            <br></br>
-            <input type='radio' value='1000' name='digits'/> Three Digits
-         </div>
+         <Card className='ui centered grid' onChange={(e)=> setDigits(Number(e.target.value))}>
+            <div>How many digits?</div>
+            <div>
+               <input type='radio' value='10' name='digits'/> 1
+            </div>
+            <div>
+               <input type='radio' value='100' name='digits'/> 2
+            </div>
+            <div>
+               <input type='radio' value='1000' name='digits'/> 3
+            </div>
+         </Card>
       </div>
    )
 }
