@@ -96,7 +96,8 @@ function Fundamentals(){
 
    return (
       <div>
-         <Card className='ui centered grid'>
+         <Card.Group className='ui centered grid'>
+         <Card>
             <Dropdown 
                onChange={(e, data)=>{
                   setCurrentOperation(e.target.textContent.toLowerCase())
@@ -111,7 +112,7 @@ function Fundamentals(){
             />
             <div>
                <br></br>
-               <div>{symbol? question : null}</div>
+               <h3>{symbol? question : null}</h3>
                <br></br>
                <form onSubmit={(e)=>findSolution(e)}>
                      <input 
@@ -127,18 +128,21 @@ function Fundamentals(){
             {/* <Solve setNum1={setNum1} setNum2={setNum2} getRandomInt={getRandomInt} question={question}/> */}
             <div className='ui blue submit button' onClick={saveScore}> Save Score</div>
          </Card>
-         <Card className='ui centered grid' onChange={(e)=> setDigits(Number(e.target.value))}>
+         <Card onChange={(e)=> setDigits(Number(e.target.value))}>
             <div>How many digits?</div>
+            <div className='left aligned content'>
             <div>
-               <input type='radio' value='10' name='digits'/> 1
+               <input type='radio' value='10' name='digits'/> Single Digit
             </div>
             <div>
-               <input type='radio' value='100' name='digits'/> 2
+               <input type='radio' value='100' name='digits'/> Two Digits
             </div>
             <div>
-               <input type='radio' value='1000' name='digits'/> 3
+               <input type='radio' value='1000' name='digits'/> Three Digits
+            </div>
             </div>
          </Card>
+         </Card.Group>
       </div>
    )
 }
