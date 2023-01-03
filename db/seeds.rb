@@ -20,6 +20,13 @@ Topic.create(concept: "Percents",
              review: 'Percents are used to measure a proportion of the total amount. In order to work with percents, it is easiest to first convert them into decimals. Think of 100% as the starting amount.  Therefore, when we see percent increase or decrease, adjust from the initial 100% to find the new percentage of the original amount. When you see the word "of", think multiply. When a question asks for the total percent increase or decrease find the total change divided by the original amount and convert the decimal into a percentage.',
              examples: ['30% can be written as 0.30', '5% can be written as 0.05', '25% of 12 written as an expression is 0.25(12) = 3', '50% more than 30 is equivalent to 150% of 30 or 1.5(30) = 45'],
              completed: false)
+Topic.create(concept: 'One-Step Word Problems',
+           review: 'When working through word problems, practice breaking down and writing out the equation as you read it instead of skimming the entire problem and trying to figure it out after. Generally, the verb in a word problem can be replaced with an equal sign - everything before the verb should be written on one side of the equation, and everything after written on the other side. It is important to recognize keywords that represent mathematical operations. A few of these keywords and their operations are listed below.',
+           examples: ['ADDITION : more than, increased by, greater than, exceeds',
+           'SUBTRACTION : decreased by, less than (reverse), fewer than (reverse), subtracted from (reverse)',
+           'MULTIPLICATION : times, of',
+           'DIVISION : per, ratio'],
+            completed: false)
 
 puts 'Seeding problems...'
 
@@ -30,6 +37,14 @@ Problem.create(question: 'What is the average of 21, 27, 35, and 17?',
                # user_id: nil,
                topic_id: 1
                )
+Problem.create(question: 'The average of 5 numbers is 20. What is their sum?',
+               answer: '100',
+               solution: ['Since the sum divided by 5 is 20, when we multiple 20*5 we can find the sum which is 100'],
+               topic_id: 1)
+Problem.create(question: 'The average of 4 numbers is 15. If the first three numbers are 12, 18, and 20 respectively, what is the last number?',
+               answer:'10',
+               solution:['We can find the sum of the numbers by multiplying 15*4 = 60. Since the sum is 60, we can now write the following equation to solve: 12 + 18 + 20 + x = 60  which results in 50 + x = 60. Therefore, our last number would be 10.'],
+               topic_id: 1)
 Problem.create(question: 'The average of 3 consecutive numbers is 10. What is the smallest number?',
                answer: '9',
                solution: ['If we say x is the smallest number, the following consecutive numbers would be x+1 and x+2.  We can then setup our equation:  (x + x + 1 + x + 2)/3 = 10.  Combining like terms, we get (3x + 3)/3 = 10.  After multiplying both sides by 3, we have 3x + 3 = 30.  Subtract 3 from both sides to get 3x = 27.  Finally divide by 3 and we have x = 9','When we are trying to find the average of consecutive numbers, the average must be exactly in the middle. Because of this, 10 is the middle number. Therefore, the numbers are 9, 10, and 11; 9 is the smallest number.'],
