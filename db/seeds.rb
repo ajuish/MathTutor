@@ -71,6 +71,14 @@ Problem.create(question: 'What is 60% less than 50?',
                answer: '20',
                solution: ['60% less than 50 is equivalent to 40% of 50 ==> 0.4(50) = 20'],
                topic_id: 2)
+Problem.create(question: 'A number increase by 30% is 26. What is the number?',
+               answer: '20',
+               solution: ['30% increase is the same as saying we have 130% of the number. In other words, 130% of the original number equals 26 ==> 1.3x = 26, and we can divide by 1.3 to get 20.'],
+               topic_id: 2)
+Problem.create(question: '40% less than a number is 18. What is the number?',
+               answer: '30',
+               solution: ['40% less than a number is same as saying 60% of the number.  60% of the original number equals 18 ==> 0.6x = 18, or x = 30'],
+               topic_id: 2)
 Problem.create(question: 'A number increases from 40 to 50. What is the overall percent increase?',
                answer: '25%',
                solution: ['First find how much the value changed 50 - 40 = 10. Then, to find percent increase, divide the change by the original amount.  10/40 = 0.25 and change it to a percentage 0.25 * 100 = 25%'],
@@ -83,3 +91,29 @@ Problem.create(question: 'A number is increased by 20% and then decreased by 20%
                answer: '4%',
                solution: ['This is a bit of a trick question. The number is increased by 20%, and then the RESULT is decreased by 20%, which means when we decrease we\'re actually basing the percentage on the new, larger value. It actually does not matter what the original value is, so we can set it as the variable X (or use 100 if you prefer).  First we increase X by 20% ==> 1.2X and then decrease it by 20% ==>  0.8(1.2X) = 0.96X or 96% of the starting value. Because we only have 96% of the original, we lost 4% - remember to think of 100% as the starting amount'],
                topic_id: 2)
+
+# One-Step Word Problems
+Problem.create(question: 'A number increased by 12 is 27. What is the number?',
+               answer: '15',
+               solution:['x + 12 = 27,  x = 15'],
+               topic_id: 3)
+Problem.create(question: '3 less than a number is 17. What is the number?',
+               answer: '20',
+               solution: ['x - 3 = 17,  x = 20'],
+               topic_id: 3)
+Problem.create(question: 'John has 3 more candy bars than his sister. If John has 10 candy bars, how many does his sister have?',
+               answer: '7',
+               solution: ['Since John has 3 more candy bars than his sister, we can subtract to find his sister\'s amount. 10 - 3 = 7 candy bars', 'Although this is a relatively easy question, it does help to practice writing out the equation.  Let x equal the number of candy bars John\'s sister has.  Then, since John as 3 more than her,  x + 3 = 10.  Therefore x = 7'],
+               topic_id: 3)
+Problem.create(question: 'Trisha has 15 dollars less than Kim. If Trisha has 20 dollars, how much does Kim have?',
+              answer: '35',
+              solution:['Since Trisha has 15 less than Kim, we can simply add the 15 to her 20 to get Kim\'s total.  20 + 15 = 35', 'If we say x = Kim, then x - 15 = 20 or x = 35'],
+              topic_id: 3)
+Problem.create(question: '30% of a number is 12. What is the number?',
+               answer: '40',
+               solution: ['If you had trouble with this problem, review the percent section. 0.3x = 12, x = 40.'],
+               topic_id: 3)
+Problem.create(question: 'If 120 books are divided equally between 5 bookshelves, how many books are on each bookshelf?',
+               answer: '24',
+               solution: ['120/5 = 24'],
+               topic_id: 3)
