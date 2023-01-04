@@ -76,9 +76,10 @@ function Login() {
       <Message 
         onClick={()=>navigate('/signup')} 
         className="ui submit button"
-      >
+        >
         Don't have an account? Sign Up
       </Message>
+      <h3 className="error">{errors}</h3>
     </Grid.Column>
   </Grid>
 //     <div className ="ui middle aligned center aligned grid">
@@ -106,7 +107,6 @@ function Login() {
 //         </div>
 //       {/* <div className ="ui error message"></div> */}
 //     </form>
-//       <h3 className="error">{errors}</h3>
 //   </div>
 // </div>
   )

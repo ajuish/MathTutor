@@ -4,7 +4,7 @@ import React from 'react'
 function NavBar() {
 
   return (
-    <>
+    <div className='nav'>
     <div className="ui secondary menu">
       {/* <h1 classNameName='title'>React Piano</h1> */}
     <div className="left menu">
@@ -35,7 +35,7 @@ function NavBar() {
       } 
     </div>
   </div>
-  </>
+  </div>
   )
 }
 
