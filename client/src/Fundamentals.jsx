@@ -132,7 +132,7 @@ function Fundamentals(){
       .then(resp=>resp.json())
       .then(window.location.reload())
    }
-console.log(digits)
+
    return (
       <div>
          {/* <Card.Group className='ui centered grid'> */}

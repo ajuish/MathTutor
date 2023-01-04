@@ -79,7 +79,7 @@ function Topics(){
             {showQuestion ?
                 <Card.Group className='ui centered grid stacked segment'>
                 <Card className='stacked segment'>
-                    <div>{currentProblem.question}</div>
+                    <h3>{currentProblem.question}</h3>
                     <br></br> 
                     <form onSubmit={(e)=>checkAnswer(e)}>
                         <input 
@@ -94,7 +94,7 @@ function Topics(){
                     <div style={{color:'red', fontWeight:'bold'}}>{answerResult}</div>
                 </Card>
                 {showSolution ?
-                    <Card>{currentProblem.solution[0]}</Card>
+                    <Card><h3>{currentProblem.solution[0]}</h3></Card>
                     : null
                 }
                 </Card.Group>
