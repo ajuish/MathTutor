@@ -50,7 +50,7 @@ Problem.create(question: '5(8 - 2) + 4',
                topic_id: 1)
 Problem.create(question: '6*7 - 2(12 - 4)',
                answer: '26',
-               solution: '6*7 - 2(8) = 42 - 16 = 26',
+               solution: ['6*7 - 2(8) = 42 - 16 = 26'],
                topic_id: 1)
 Problem.create(question: '2(3)^3 - 9',
                answer: '45',
@@ -62,23 +62,23 @@ Problem.create(question: '3(5 + 1) - 6(7-5)',
                topic_id: 1)
 
 # Systems of Equations
-Problem.create(question: 'x - 2y = 6 :::: 2x + 3y = 32',
+Problem.create(question: 'x - 2y = 6 <---> 2x + 3y = 32',
                answer: '(10,2)',
                solution: ['Hint: use substitution, solve for x'],
                topic_id: 2)
-Problem.create(question: '3x - y = 13 :::: 2x + y = 12',
+Problem.create(question: '3x - y = 13 <---> 2x + y = 12',
                answer: '(5,2)',
                solution: ['Hint: use elimination, add the equations together to get rid of y'],
                topic_id: 2)
-Problem.create(question: '4x + 3y = 14 :::: 2x + 5y = 14',
+Problem.create(question: '4x + 3y = 14 <---> 2x + 5y = 14',
                answer: '(2,2)',
                solution: ['Hint: use elimination, multiply the second equation by -2 and add the equations together to get rid of x'],
                topic_id: 2)
-Problem.create(question: '3x + 5y = 25 :::: 2x - 3y = 4',
+Problem.create(question: '3x + 5y = 25 <---> 2x - 3y = 4',
                answer: '(5,2)',
                solution: ['Hint: use elimination, both equations must be multiplied so that one of the variables has the same coefficient but opposite sign.'],
                topic_id: 2)
-Problem.create(question: '6x + 5y = 39 ::: 7x - y = 25',
+Problem.create(question: '6x + 5y = 39 <---> 7x - y = 25',
                answer: '(4,3)',
                solution: ['Hint: using elimination, we can multiply the second equation by 5 anad add the equations togther to get rid of x. Otherwise, we could also solve for y in the second equations and substitute into the first.'],
                topic_id: 2)

@@ -9,6 +9,8 @@ function Topics(){
     const [currentProblem, setCurrentProblem] = useState({})
     const [userAnswer, setUserAnswer] = useState('')
     const [answerResult, setAnswerResult] = useState('')
+    const [showQuestion, setShowQuestion] = useState(false)
+    const [showSolution, setShowSolution] = useState(false)
 
     useEffect(() => {
         fetch('/topics')
@@ -34,7 +36,7 @@ function Topics(){
         else
             setAnswerResult('Incorrect, Try Again')
         
-        console.log(currentProblem.solution)
+        setShowSolution(true)
     }
 
     //use showTopic to write logic to display info
@@ -57,6 +59,8 @@ function Topics(){
                         setCurrentProblem(problem)
                         setAnswerResult('')
                         setUserAnswer('')
+                        setShowQuestion(true)
+                        setShowSolution(false)
                         }} 
                     key={uuidv4()}
                 >
@@ -65,21 +69,29 @@ function Topics(){
             )}
 
             {/* displays practice problems on click */}
-            <Card className='ui centered grid stacked segment'>
-                <div>{currentProblem.question}</div>
-                <br></br> 
-                <form onSubmit={(e)=>checkAnswer(e)}>
-                    <input 
-                        type='text' 
-                        placeholder='Enter Answer' 
-                        value={userAnswer} 
-                        onChange={(e)=>setUserAnswer(e.target.value)}
-                    />
-                    <input type='submit' value='Submit'/>
-                </form>
-                <br></br>
-                <div style={{color:'red', fontWeight:'bold'}}>{answerResult}</div>
-            </Card>
+            {showQuestion ?
+                <Card.Group className='ui centered grid stacked segment'>
+                <Card className='stacked segment'>
+                    <div>{currentProblem.question}</div>
+                    <br></br> 
+                    <form onSubmit={(e)=>checkAnswer(e)}>
+                        <input 
+                            type='text' 
+                            placeholder='Enter Answer' 
+                            value={userAnswer} 
+                            onChange={(e)=>setUserAnswer(e.target.value)}
+                        />
+                        <input type='submit' value='Submit'/>
+                    </form>
+                    <br></br>
+                    <div style={{color:'red', fontWeight:'bold'}}>{answerResult}</div>
+                </Card>
+                {showSolution ?
+                    <Card>{currentProblem.solution[0]}</Card>
+                    : null
+                }
+                </Card.Group>
+            : null}
 
         </div> 
         : null
@@ -91,6 +103,8 @@ function Topics(){
                     onChange={(e)=>{
                         setCurrentTopic(e.target.textContent)
                         setCurrentProblem({})
+                        setShowQuestion(false)
+                        setShowSolution(false)
                     }} 
                     placeholder="Choose Concept"
                     value={currentTopic} 
