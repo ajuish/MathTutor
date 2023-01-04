@@ -34,6 +34,7 @@ function Fundamentals(){
             division: data.division
          }))
    }, [])
+   
    //dropdown array
    const operations = [
       {
@@ -130,8 +131,8 @@ function Fundamentals(){
 
    return (
       <div>
-         <Card.Group className='ui centered grid'>
-         <Card>
+         {/* <Card.Group className='ui centered grid'> */}
+         <Card className='ui centered grid'>
             <Dropdown 
                onChange={(e, data)=>{
                   setCurrentOperation(e.target.textContent.toLowerCase())
@@ -161,8 +162,8 @@ function Fundamentals(){
             </div>
             <div className='ui blue submit button' onClick={saveScore}> Save Score</div>
          </Card>
-         <Card onChange={(e)=> setDigits(Number(e.target.value))}>
-            <div className='left aligned content'>
+         <Card className='ui centered grid' onChange={(e)=> setDigits(Number(e.target.value))}>
+            <div className='center aligned content'>
                <h3>How many digits?</h3>
                <div>
                   <input type='radio' value='10' name='digits'/> Single Digit
@@ -175,7 +176,7 @@ function Fundamentals(){
                </div>
             </div>
          </Card>
-         </Card.Group>
+         {/* </Card.Group> */}
          <Card className='ui centered grid'>
          <h3>Scores:</h3>
             <div><b>Addition: </b> {score.addition[0]}/{score.addition[1]}</div>

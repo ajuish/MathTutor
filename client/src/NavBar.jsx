@@ -16,12 +16,12 @@ function NavBar() {
       </a> */}
       {sessionStorage.getItem('user_id') ?
       <>
-      <a href='/topics' className="item">
-        Topics
-      </a>
-      <a href='/fundamentals' className="item">
-        Fundamentals
-      </a>
+        <a href='/fundamentals' className="item">
+          Fundamentals
+        </a>
+        <a href='/topics' className="item">
+          Topics
+        </a>
       </>
       : null}
       {sessionStorage.getItem('user_id') ?
