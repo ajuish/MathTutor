@@ -8,8 +8,9 @@ function NavBar() {
     <div className="ui secondary menu">
       {/* <h1 classNameName='title'>React Piano</h1> */}
     <div className="left menu">
+      
       <a className="item" href='/'>
-        Home
+        <h3>Home</h3>
       </a>
       {/* <a onClick={navProfile} className="item">
         Profile
@@ -17,19 +18,19 @@ function NavBar() {
       {sessionStorage.getItem('user_id') ?
       <>
         <a href='/fundamentals' className="item">
-          Fundamentals
+          <h3>Fundamentals</h3>
         </a>
         <a href='/topics' className="item">
-          Topics
+          <h3>Topics</h3>
         </a>
       </>
       : null}
       {sessionStorage.getItem('user_id') ?
       <a onClick={()=>sessionStorage.clear()} className="item" href='/'>
-        Logout
+        <h3>Logout</h3>
       </a> :
       <a href='/login' className="item">
-        Login
+        <h3>Login</h3>
       </a>
       } 
     </div>
