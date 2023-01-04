@@ -19,7 +19,7 @@ Topic.create(concept: 'Order of Operations',
              completed: false)
 Topic.create(concept: 'Systems of Equations',
              review: 'When solving systems of equations with 2 variables, our goal is to first change our problem so that only one variable remains. We can accomplish using one of two methods - substitution or elimination.',
-             examples: ['SUBSTITUTION:  First, choose one of the equations, and then solve in terms of one variable.Then substitute the new expression into the other equation and solve. Plug your result into one of the original equations to find the other variable.', 'ELIMINATION:   Remember that you can multiply both sides of an equation by the same number. Therfore we can multiply one or both equations in order to make one of the variables have the same coefficient but opposite sign. We can then add the two equations together to cancel out one of the variables and solve.  Plug the result back into one of original equations to find the other variable', 'When solving systems of equations, which method is used is frequently determined by the problem.  Usually, it is easier to use one method or the other; however, all equations can be solved by either method.'],
+             examples: ['SUBSTITUTION:  First, choose one of the equations, and then solve in terms of one variable.Then substitute the new expression into the other equation and solve. Plug your result into one of the original equations to find the other variable.', 'ELIMINATION:   Remember that you can multiply both sides of an equation by the same number. Therfore we can multiply one or both equations in order to make one of the variables have the same coefficient but opposite sign. We can then add the two equations together to cancel out one of the variables and solve.  Plug the result back into one of original equations to find the other variable', 'When solving systems of equations, which method is used is frequently determined by the problem.  If it is easy to separate a variable, use substitution, otherwise use elimination; however, all equations can be solved by either method.', 'For the practice problems, write your answer as an ordered pair: (x,y)'],
              completed: false)
 Topic.create(concept: 'Averages', 
              review: 'To find the average of a set of numbers, add the numbers together, and divide by how many numbers you have. Remember that you can also find the sum of the values by multiplying the average by how many numbers exist.',
@@ -61,6 +61,28 @@ Problem.create(question: '3(5 + 1) - 6(7-5)',
                solution: ['3(6) - 6(2) = 18 - 12 = 6'],
                topic_id: 1)
 
+# Systems of Equations
+Problem.create(question: 'x - 2y = 6 :::: 2x + 3y = 32',
+               answer: '(10,2)',
+               solution: ['Hint: use substitution, solve for x'],
+               topic_id: 2)
+Problem.create(question: '3x - y = 13 :::: 2x + y = 12',
+               answer: '(5,2)',
+               solution: ['Hint: use elimination, add the equations together to get rid of y'],
+               topic_id: 2)
+Problem.create(question: '4x + 3y = 14 :::: 2x + 5y = 14',
+               answer: '(2,2)',
+               solution: ['Hint: use elimination, multiply the second equation by -2 and add the equations together to get rid of x'],
+               topic_id: 2)
+Problem.create(question: '3x + 5y = 25 :::: 2x - 3y = 4',
+               answer: '(5,2)',
+               solution: ['Hint: use elimination, both equations must be multiplied so that one of the variables has the same coefficient but opposite sign.'],
+               topic_id: 2)
+Problem.create(question: '6x + 5y = 39 ::: 7x - y = 25',
+               answer: '(4,3)',
+               solution: ['Hint: using elimination, we can multiply the second equation by 5 anad add the equations togther to get rid of x. Otherwise, we could also solve for y in the second equations and substitute into the first.'],
+               topic_id: 2)
+
 # Average problems
 Problem.create(question: 'What is the average of 21, 27, 35, and 17?',
                answer: '25',
@@ -78,7 +100,7 @@ Problem.create(question: 'The average of 4 numbers is 15. If the first three num
                topic_id: 3)
 Problem.create(question: 'The average of 3 consecutive numbers is 10. What is the smallest number?',
                answer: '9',
-               solution: ['If we say x is the smallest number, the following consecutive numbers would be x+1 and x+2.  We can then setup our equation:  (x + x + 1 + x + 2)/3 = 10.  Combining like terms, we get (3x + 3)/3 = 10.  After multiplying both sides by 3, we have 3x + 3 = 30.  Subtract 3 from both sides to get 3x = 27.  Finally divide by 3 and we have x = 9','When we are trying to find the average of consecutive numbers, the average must be exactly in the middle. Because of this, 10 is the middle number. Therefore, the numbers are 9, 10, and 11; 9 is the smallest number.'],
+               solution: ['If we say x is the smallest number, the following consecutive numbers would be x+1 and x+2.  We can then setup our equation:  (x + x + 1 + x + 2)/3 = 10.  Combining like terms, we get (3x + 3)/3 = 10.  After multiplying both sides by 3, we have 3x + 3 = 30.  Subtract 3 from both sides to get 3x = 27.  Finally divide by 3 and we have x = 9. Also, as a shortcut, when we are trying to find the average of consecutive numbers, the average must be exactly in the middle. Because of this, 10 is the middle number. Therefore, the numbers are 9, 10, and 11; 9 is the smallest number.'],
                # user_id: nil,
                topic_id: 3
                )
