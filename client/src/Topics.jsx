@@ -39,11 +39,13 @@ function Topics(){
         e.preventDefault()
 
         if (userAnswer === currentProblem.answer)
-            setAnswerResult('Correct')
+            {setAnswerResult('Correct')}
         else
-            setAnswerResult('Incorrect, Try Again')
+            {setAnswerResult('Incorrect, Try Again')}
+            
+        if (userAnswer)
+            {setShowSolution(true)}
         
-        setShowSolution(true)
     }
 
     //use showTopic to write logic to display info
