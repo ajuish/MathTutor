@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react'
+import {useNavigate} from 'react-router-dom'
 import {Dropdown, Card} from 'semantic-ui-react'
 import {v4 as uuidv4} from 'uuid'
 
 function Topics(){
     
+    const currentUser = sessionStorage.getItem('user_id')
+    const navigate = useNavigate()
     const [allTopics, setAllTopics] = useState([])
     const [currentTopic, setCurrentTopic] = useState('')
     const [currentProblem, setCurrentProblem] = useState({})
@@ -13,9 +16,13 @@ function Topics(){
     const [showSolution, setShowSolution] = useState(false)
 
     useEffect(() => {
-        fetch('/topics')
-        .then(resp => resp.json())
-        .then(data => setAllTopics(data))
+        if (currentUser == null){
+            navigate('/login')
+        }
+        else
+            fetch('/topics')
+            .then(resp => resp.json())
+            .then(data => setAllTopics(data))
     }, [])
 
     // map topics for dropdown menu

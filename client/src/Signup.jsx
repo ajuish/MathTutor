@@ -36,6 +36,7 @@ function Signup() {
                 r.json()
                 .then(data => window.sessionStorage.setItem("user_id", data.id))
                 .then(() => navigate("/topics"))
+                .then(window.location.reload())
             }
             else {
                 console.log("invalid")

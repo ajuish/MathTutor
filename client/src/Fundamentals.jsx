@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom'
 import {Dropdown, Card} from 'semantic-ui-react'
 
 function Fundamentals(){
 
+   const currentUser = sessionStorage.getItem('user_id')
+   const navigate = useNavigate()
    const [num1, setNum1] = useState(getRandomInt(10))
    const [num2, setNum2] = useState(getRandomInt(10))
    const [currentOperation, setCurrentOperation] = useState('')
@@ -17,14 +20,19 @@ function Fundamentals(){
    })
    
    useEffect(()=> {
-      fetch(`/users/${sessionStorage.getItem('user_id')}`)
-      .then(resp => resp.json())
-      .then(data => setScore({
-         addition: data.addition,
-         subtraction: data.subtraction,
-         multiplication: data.multiplication,
-         division: data.division
-      }))
+
+      if (currentUser == null){
+         navigate('/login')
+      }
+      else
+         fetch(`/users/${currentUser}`)
+         .then(resp => resp.json())
+         .then(data => setScore({
+            addition: data.addition,
+            subtraction: data.subtraction,
+            multiplication: data.multiplication,
+            division: data.division
+         }))
    }, [])
    //dropdown array
    const operations = [
@@ -93,7 +101,7 @@ function Fundamentals(){
    function saveScore(){
       // const user_id = sessionStorage.getItem('user_id')
       
-      fetch(`/users/${sessionStorage.getItem('user_id')}`, {
+      fetch(`/users/${currentUser}`, {
          method: 'PATCH', 
          headers: {
             'Content-Type': 'application/json'
@@ -104,7 +112,7 @@ function Fundamentals(){
    }
 
    function resetScore(){
-      fetch(`/users/${sessionStorage.getItem('user_id')}`, {
+      fetch(`/users/${currentUser}`, {
          method: 'PATCH', 
          headers: {
             'Content-Type': 'application/json'
