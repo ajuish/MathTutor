@@ -18,6 +18,10 @@ code {
   background-size: cover;
 }
 
-/* .nav{
-  
-} */
+.nav{
+  background-color: rgb(255, 255, 255, 0.75) 
+}
+
+.topspace{
+  margin-top: 50px
+}

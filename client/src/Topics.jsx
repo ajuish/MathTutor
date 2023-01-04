@@ -107,7 +107,7 @@ function Topics(){
 
     return(
         <div className='ui container'>
-            <div className='ui centered grid'>
+            <div align='center' verticalAlign='middle' className='topspace'>
                 <Dropdown 
                     onChange={(e)=>{
                         setCurrentTopic(e.target.textContent)
