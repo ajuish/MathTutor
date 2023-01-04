@@ -20,7 +20,7 @@ Topic.create(concept: "Percents",
              review: 'Percents are used to measure a proportion of the total amount. In order to work with percents, it is easiest to first convert them into decimals. Think of 100% as the starting amount.  Therefore, when we see percent increase or decrease, adjust from the initial 100% to find the new percentage of the original amount. When you see the word "of", think multiply. When a question asks for the total percent increase or decrease find the total change divided by the original amount and convert the decimal into a percentage.',
              examples: ['30% can be written as 0.30', '5% can be written as 0.05', '25% of 12 written as an expression is 0.25(12) = 3', '50% more than 30 is equivalent to 150% of 30 or 1.5(30) = 45'],
              completed: false)
-Topic.create(concept: 'One-Step Word Problems',
+Topic.create(concept: 'Basic Word Problems',
            review: 'When working through word problems, practice breaking down and writing out the equation as you read it instead of skimming the entire problem and trying to figure it out after. Generally, the verb in a word problem can be replaced with an equal sign - everything before the verb should be written on one side of the equation, and everything after written on the other side. It is important to recognize keywords that represent mathematical operations. A few of these keywords and their operations are listed below.',
            examples: ['ADDITION : more than, increased by, greater than, exceeds',
            'SUBTRACTION : decreased by, less than (reverse), fewer than (reverse), subtracted from (reverse)',

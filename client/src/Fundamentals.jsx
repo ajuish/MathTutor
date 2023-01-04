@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Dropdown, Card} from 'semantic-ui-react'
 
 function Fundamentals(){
@@ -10,12 +10,22 @@ function Fundamentals(){
    const [digits, setDigits] = useState(10)
    const [userAnswer, setUserAnswer] = useState('')
    const [score, setScore] = useState({
-         addition: [0,0],
-         subtraction:[0,0],
-         multiplication:[0,0],
-         division: [0,0]
-      })
-
+      addition: [0,0],
+      subtraction:[0,0],
+      multiplication:[0,0],
+      division: [0,0]
+   })
+   
+   useEffect(()=> {
+      fetch(`/users/${sessionStorage.getItem('user_id')}`)
+      .then(resp => resp.json())
+      .then(data => setScore({
+         addition: data.addition,
+         subtraction: data.subtraction,
+         multiplication: data.multiplication,
+         division: data.division
+      }))
+   }, [])
    //dropdown array
    const operations = [
       {
@@ -47,7 +57,7 @@ function Fundamentals(){
 
    //creates question
    let question
-
+   
    if (symbol === '-'){
       if (num2 > num1){
          question = `${num2} ${symbol} ${num1}`
@@ -57,33 +67,33 @@ function Fundamentals(){
       }
    }
    else 
-      {question = `${num1} ${symbol} ${num2}`}
+   {question = `${num1} ${symbol} ${num2}`}
 
    //checks solution onSubmit
    function findSolution(e){
       e.preventDefault()
-
+      
       if (eval(question) === Number(userAnswer)){
          //runs if answer is correct
-         score[currentOperation] = [score[currentOperation][0]+1, score[currentOperation][1]+1]
+         score[currentOperation] = [Number(score[currentOperation][0])+1, Number(score[currentOperation][1])+1]
          setScore(score)
       }
       else {
          //runs if answer is incorrect
-         score[currentOperation] = [score[currentOperation][0], score[currentOperation][1]+1]
+         score[currentOperation] = [Number(score[currentOperation][0]), Number(score[currentOperation][1])+1]
          setScore(score)
       }
-
-     setNum1(getRandomInt(digits))
-     setNum2(getRandomInt(digits))
-     
-     setUserAnswer('')
+      
+      setNum1(getRandomInt(digits))
+      setNum2(getRandomInt(digits))
+      
+      setUserAnswer('')
    }
-
+   
    function saveScore(){
-      const user_id = sessionStorage.getItem('user_id')
-
-      fetch(`/users/${user_id}`, {
+      // const user_id = sessionStorage.getItem('user_id')
+      
+      fetch(`/users/${sessionStorage.getItem('user_id')}`, {
          method: 'PATCH', 
          headers: {
             'Content-Type': 'application/json'
@@ -91,7 +101,23 @@ function Fundamentals(){
          body: JSON.stringify(score)
       })
       .then(resp=>resp.json())
-      .then(data=>console.log(data))
+   }
+
+   function resetScore(){
+      fetch(`/users/${sessionStorage.getItem('user_id')}`, {
+         method: 'PATCH', 
+         headers: {
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify({
+            addition: [0,0],
+            subtraction:[0,0],
+            multiplication:[0,0],
+            division: [0,0]
+         })
+      })
+      .then(resp=>resp.json())
+      .then(window.location.reload())
    }
 
    return (
@@ -125,24 +151,32 @@ function Fundamentals(){
                </form>
                <br></br>
             </div>
-            {/* <Solve setNum1={setNum1} setNum2={setNum2} getRandomInt={getRandomInt} question={question}/> */}
             <div className='ui blue submit button' onClick={saveScore}> Save Score</div>
          </Card>
          <Card onChange={(e)=> setDigits(Number(e.target.value))}>
-            <div>How many digits?</div>
             <div className='left aligned content'>
-            <div>
-               <input type='radio' value='10' name='digits'/> Single Digit
-            </div>
-            <div>
-               <input type='radio' value='100' name='digits'/> Two Digits
-            </div>
-            <div>
-               <input type='radio' value='1000' name='digits'/> Three Digits
-            </div>
+               <h3>How many digits?</h3>
+               <div>
+                  <input type='radio' value='10' name='digits'/> Single Digit
+               </div>
+               <div>
+                  <input type='radio' value='100' name='digits'/> Two Digits
+               </div>
+               <div>
+                  <input type='radio' value='1000' name='digits'/> Three Digits
+               </div>
             </div>
          </Card>
          </Card.Group>
+         <Card className='ui centered grid'>
+         <h3>Scores:</h3>
+            <div><b>Addition: </b> {score.addition[0]}/{score.addition[1]}</div>
+            <div><b>Subtraction: </b> {score.subtraction[0]}/{score.subtraction[1]}</div>
+            <div><b>Multiplication: </b> {score.multiplication[0]}/{score.multiplication[1]}</div>
+            <div><b>Division: </b>{score.division[0]}/{score.division[1]}</div>
+            <br></br>
+            <div className='ui red button' onClick={resetScore}>Reset Scores</div>
+         </Card>
       </div>
    )
 }
