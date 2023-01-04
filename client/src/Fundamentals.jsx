@@ -132,7 +132,7 @@ function Fundamentals(){
       .then(resp=>resp.json())
       .then(window.location.reload())
    }
-
+console.log(digits)
    return (
       <div>
          {/* <Card.Group className='ui centered grid'> */}
@@ -166,7 +166,6 @@ function Fundamentals(){
                </form>
                <br></br>
             </div>
-            <div className='ui blue submit button' onClick={saveScore}> Save Score</div>
          </Card>
          <Card className='ui centered grid' onChange={(e)=> setDigits(Number(e.target.value))}>
             <div className='center aligned content'>
@@ -196,6 +195,7 @@ function Fundamentals(){
             <div><b>Multiplication: </b> {score.multiplication[0]}/{score.multiplication[1]}</div>
             <div><b>Division: </b>{score.division[0]}/{score.division[1]}</div>
             <br></br>
+            <div className='ui blue submit button' onClick={saveScore}> Save Score</div>
             <div className='ui red button' onClick={resetScore}>Reset Scores</div>
          </Card>
       </div>
