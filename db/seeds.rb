@@ -29,13 +29,17 @@ Topic.create(concept: "Percents",
              review: 'Percents are used to measure a proportion of the total amount. In order to work with percents, it is easiest to first convert them into decimals. Think of 100% as the starting amount.  Therefore, when we see percent increase or decrease, adjust from the initial 100% to find the new percentage of the original amount. When you see the word "of", think multiply. When a question asks for the total percent increase or decrease find the total change divided by the original amount and convert the decimal into a percentage.',
              examples: ['30% can be written as 0.30', '5% can be written as 0.05', '25% of 12 written as an expression is 0.25(12) = 3', '50% more than 30 is equivalent to 150% of 30 or 1.5(30) = 45'],
              completed: false)
-Topic.create(concept: 'Basic Word Problems',
+Topic.create(concept: 'One-Step Word Problems',
            review: 'When working through word problems, practice breaking down and writing out the equation as you read it instead of skimming the entire problem and trying to figure it out after. Generally, the verb in a word problem can be replaced with an equal sign - everything before the verb should be written on one side of the equation, and everything after written on the other side. It is important to recognize keywords that represent mathematical operations. A few of these keywords and their operations are listed below.',
            examples: ['ADDITION : more than, increased by, greater than, exceeds',
            'SUBTRACTION : decreased by, less than (reverse), fewer than (reverse), subtracted from (reverse)',
            'MULTIPLICATION : times, of',
            'DIVISION : per, ratio'],
             completed: false)
+Topic.create(concept:'Two-Step Word Problems',
+             review: 'As word problems become more complicated, it\'s easy to lose track of your information.  Take a moment after reading each sentence and assess the three things listed below:',
+             examples:['Is there any important information?', 'What can I figure out from just this sentence?', 'How can I put this information together with what I gathered from previous sentences?', 'Try to write out the equation(s) as you read through the problem.'],
+             completed: false)
 
 puts 'Seeding problems...'
 
@@ -170,3 +174,25 @@ Problem.create(question: 'If 120 books are divided equally between 5 bookshelves
                answer: '24',
                solution: ['120/5 = 24'],
                topic_id: 5)
+
+# Two-Step Word Problems
+Problem.create(question: 'Joe has 5 more than 3 times as many baseball cards as Bob. If Joe has 26 cards, how many does Bob have?',
+               answer: '7',
+               solution: ['let x = Bob. 3x + 5 = 26, x = 7'],
+               topic_id: 6)
+Problem.create(question: 'Fifty students went on a field trip. Eight students were driven by their parents, and the others traveled in 7 white vans. How many students were in each van?',
+               answer: '6',
+               solution: ['let x = the number of students in each van. 7x + 8 = 50, x = 6'],
+               topic_id: 6)
+Problem.create(question: 'Jenny bought a $5 magazine as well as 5 books.  If she spent $45 in total, how much was each book?',
+               answer: '8',
+               solution: ['let x = price per book. 5x + 5 = 45, x = 8'],
+               topic_id: 6)
+Problem.create(question: 'Maria binge watched 10 episodes of her favorite tv show over the course of 7 hours.  If she took a 2 hour break for lunch, how many minutes was each episode?',
+               answer: '30',
+               solution:['It is important to keep track of our units when working through problems. Let x = time in hours per episode. 10x + 2 = 7, x = 0.5 hours; however, remember the question asks for the time in minutes. 0.5 hours = 30 minutes'],
+               topic_id: 6)
+Problem.create(question: 'Over 8 basketball, Adam took 54 shots.  If he only missed 6 shots, how many did he make on average per game?',
+               answer: '6',
+               solution:['let x = number of made shots per game.  8x + 6 = 54, x = 6'],
+               topic_id: 6)

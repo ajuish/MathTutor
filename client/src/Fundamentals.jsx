@@ -134,7 +134,7 @@ function Fundamentals(){
    }
 
    return (
-      <div className='topspace'>
+      <div className='fundamentals'>
          {/* <Card.Group className='ui centered grid'> */}
          <Card className='ui centered grid'>
             <Dropdown 

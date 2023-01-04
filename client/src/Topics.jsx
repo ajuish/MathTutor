@@ -55,7 +55,7 @@ function Topics(){
             <br></br>
             <div>{findTopic[0].review}</div>
             <br></br>
-            <h3>Examples: </h3>
+            <h3>Review: </h3>
             <ul>
                 {findTopic[0].examples.map(example=> <li key={uuidv4()}>{example}</li>)}
             </ul>
