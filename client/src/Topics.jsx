@@ -75,12 +75,14 @@ function Topics(){
                 >
                     Problem {index+1}
                 </div>
+               
             )}
-
+            <br></br>
+            <br></br>
             {/* displays practice problems on click */}
             {showQuestion ?
-                <Card.Group className='ui centered grid stacked segment'>
-                <Card className='stacked segment'>
+                <Card.Group className='ui centered grid'>
+                <Card className='stacked segment blue'>
                     <h3>{currentProblem.question}</h3>
                     <br></br> 
                     <form onSubmit={(e)=>checkAnswer(e)}>
@@ -96,9 +98,10 @@ function Topics(){
                     <div style={{color:'red', fontWeight:'bold'}}>{answerResult}</div>
                 </Card>
                 {showSolution ?
-                    <Card><h3>{currentProblem.solution[0]}</h3></Card>
+                    <Card className='blue stacked segment'><h3>{currentProblem.solution[0]}</h3></Card>
                     : null
                 }
+                
                 </Card.Group>
             : null}
 
