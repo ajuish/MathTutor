@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
-import {Dropdown, Card} from 'semantic-ui-react'
+import {Dropdown, Card, Radio} from 'semantic-ui-react'
 
 function Fundamentals(){
 
@@ -9,6 +9,7 @@ function Fundamentals(){
    const [digits, setDigits] = useState(10)
    const [num1, setNum1] = useState(getRandomInt(digits))
    const [num2, setNum2] = useState(getRandomInt(digits))
+   const [negative, setNegative] = useState(false)
    const [currentOperation, setCurrentOperation] = useState('')
    const [symbol, setSymbol] = useState('')
    const [userAnswer, setUserAnswer] = useState('')
@@ -33,7 +34,7 @@ function Fundamentals(){
             multiplication: data.multiplication,
             division: data.division
          }))
-   }, [])
+   }, [currentUser, navigate])
 
    //dropdown array
    const operations = [
@@ -68,15 +69,19 @@ function Fundamentals(){
    let question
    
    if (symbol === '-'){
-      if (num2 > num1){
-         question = `${num2} ${symbol} ${num1}`
+      if (negative == false){
+         if (num2 > num1){
+            question = `${num2} ${symbol} ${num1}`
+         }
+         else {
+            question = `${num1} ${symbol} ${num2}`
+         }
       }
-      else {
+      else 
          question = `${num1} ${symbol} ${num2}`
-      }
    }
    else 
-   {question = `${num1} ${symbol} ${num2}`}
+      {question = `${num1} ${symbol} ${num2}`}
 
    //checks solution onSubmit
    function findSolution(e){
@@ -100,7 +105,6 @@ function Fundamentals(){
    }
    
    function saveScore(){
-      // const user_id = sessionStorage.getItem('user_id')
       
       fetch(`/users/${currentUser}`, {
          method: 'PATCH', 
@@ -166,9 +170,9 @@ function Fundamentals(){
          </Card>
          <Card className='ui centered grid' onChange={(e)=> setDigits(Number(e.target.value))}>
             <div className='center aligned content'>
-               <h3>How many digits?</h3>
+               <h4>How many digits?</h4>
                <div>
-                  <input type='radio' value='10' name='digits'/> Single Digit
+                  <input type='radio' value='10' name='digits' defaultChecked/> Single Digit
                </div>
                <div>
                   <input type='radio' value='100' name='digits'/> Two Digits
@@ -177,6 +181,12 @@ function Fundamentals(){
                   <input type='radio' value='1000' name='digits'/> Three Digits
                </div>
             </div>
+           {(currentOperation == 'subtraction') ? 
+               <div className='ui center aligned'> 
+                  <h4>Include Negative Results?</h4>
+                  <Radio toggle className='ui center aligned' onChange={()=>setNegative(!negative)}/>
+               </div> 
+            : null}
          </Card>
          {/* </Card.Group> */}
          <Card className='ui centered grid'>
