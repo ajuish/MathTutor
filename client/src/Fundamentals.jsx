@@ -6,11 +6,11 @@ function Fundamentals(){
 
    const currentUser = sessionStorage.getItem('user_id')
    const navigate = useNavigate()
-   const [num1, setNum1] = useState(getRandomInt(10))
-   const [num2, setNum2] = useState(getRandomInt(10))
+   const [digits, setDigits] = useState(10)
+   const [num1, setNum1] = useState(getRandomInt(digits))
+   const [num2, setNum2] = useState(getRandomInt(digits))
    const [currentOperation, setCurrentOperation] = useState('')
    const [symbol, setSymbol] = useState('')
-   const [digits, setDigits] = useState(10)
    const [userAnswer, setUserAnswer] = useState('')
    const [score, setScore] = useState({
       addition: [0,0],
@@ -34,7 +34,7 @@ function Fundamentals(){
             division: data.division
          }))
    }, [])
-   
+
    //dropdown array
    const operations = [
       {
@@ -137,6 +137,8 @@ function Fundamentals(){
                onChange={(e, data)=>{
                   setCurrentOperation(e.target.textContent.toLowerCase())
                   // saveScore(e.target.textContent)
+                  setNum1(getRandomInt(digits))
+                  setNum2(getRandomInt(digits))
                   setSymbol(data.value)
                }}
                placeholder="Choose Concept"
