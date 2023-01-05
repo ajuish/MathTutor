@@ -142,10 +142,10 @@ function Profile() {
             <br></br>
             <Form size='large'>
                 <Segment stacked>
-                <Header as='h2' color='blue' textAlign='center'>
+                <Header as='h2' color='red' textAlign='center'>
                     Delete Account
                 </Header>
-                <Button color='blue' fluid size='large' onClick={deleteAccount}>
+                <Button color='red' fluid size='large' onClick={deleteAccount}>
                     Delete Account
                 </Button>
                 </Segment>
