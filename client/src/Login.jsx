@@ -47,11 +47,11 @@ function Login() {
   return (
     <Grid textAlign='center' style={{ height: '80vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
+      <Form size='large'>
+        <Segment stacked>
       <Header as='h2' color='blue' textAlign='center'>
         Log-in to your account
       </Header>
-      <Form size='large'>
-        <Segment stacked>
           <Form.Input 
             fluid 
             icon='user' 
@@ -82,33 +82,6 @@ function Login() {
       <h3 className="error">{errors}</h3>
     </Grid.Column>
   </Grid>
-//     <div className ="ui middle aligned center aligned grid">
-//       <div className ="column">
-//         <h2 className ="ui blue image header">
-//         <div className ="content">
-//           Log-in to your account
-//         </div>
-//         </h2>
-//         <form className ="ui large form">
-//         <div className ="ui stacked segment">
-//           <div className ="field">
-//             <div className ="ui left icon input">
-//               <i className ="envelope icon"></i>
-//               <input onChange={(e) => setEmail(e.target.value)} type="text" name="email" placeholder="Email Address"/>
-//             </div>
-//           </div>
-//           <div className ="field">
-//             <div className ="ui left icon input">
-//               <i className ="lock icon"></i>
-//               <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" placeholder="Password"/>
-//             </div>
-//           </div>
-//            <div onClick={handleLogIn} className ="ui fluid large blue submit button">Login</div>
-//         </div>
-//       {/* <div className ="ui error message"></div> */}
-//     </form>
-//   </div>
-// </div>
   )
 }
 

@@ -12,26 +12,27 @@ function NavBar() {
       <a className="item" href='/'>
         <h3>Home</h3>
       </a>
-      {/* <a onClick={navProfile} className="item">
-        Profile
-      </a> */}
       {sessionStorage.getItem('user_id') ?
-      <>
-        <a href='/fundamentals' className="item">
-          <h3>Fundamentals</h3>
-        </a>
-        <a href='/topics' className="item">
-          <h3>Topics</h3>
-        </a>
-      </>
-      : null}
+        <>
+          <a href='/profile' className="item">
+            <h3>Profile</h3>
+          </a>
+          <a href='/fundamentals' className="item">
+            <h3>Fundamentals</h3>
+          </a>
+          <a href='/topics' className="item">
+            <h3>Topics</h3>
+          </a>
+        </>
+        : null
+      }
       {sessionStorage.getItem('user_id') ?
-      <a onClick={()=>sessionStorage.clear()} className="item" href='/'>
-        <h3>Logout</h3>
-      </a> :
-      <a href='/login' className="item">
-        <h3>Login</h3>
-      </a>
+        <a onClick={()=>sessionStorage.clear()} className="item" href='/'>
+          <h3>Logout</h3>
+        </a> :
+        <a href='/login' className="item">
+          <h3>Login</h3>
+        </a>
       } 
     </div>
   </div>

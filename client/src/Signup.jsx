@@ -45,11 +45,11 @@ function Signup() {
     <>
     <Grid textAlign='center' style={{ height: '80vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
+      <Form size='large'>
+        <Segment stacked>
       <Header as='h2' color='blue' textAlign='center'>
         Signup for an account
       </Header>
-      <Form size='large'>
-        <Segment stacked>
           <Form.Input 
             fluid 
             icon='user' 
@@ -88,47 +88,6 @@ function Signup() {
       </Message>
     </Grid.Column>
   </Grid>
-      {/* <form className="ui large form">
-        <div className="ui stacked segment">
-          <div className="field">
-            <label>Email Address</label>
-            <div className="ui left icon input">
-              <i className="envelope icon"></i>
-              <input
-                onChange={(e) => setUserEmail(e.target.value)}
-                type="text"
-                name="email"
-                placeholder="E-mail address"
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label>Create Password</label>
-            <div className="ui left icon input">
-              <i className="lock icon"></i>
-              <input
-                onChange={(e) => setUserPassword(e.target.value)}
-                type="password"
-                name="password"
-                placeholder="Password"
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label>Confirm Password</label>
-            <div className="ui left icon input">
-              <i className="lock icon"></i>
-              <input
-                onChange={(e) => setConfirmPw(e.target.value)}
-                type="password"
-                name="confirmPW"
-                placeholder="Confirm Password"
-              />
-            </div>
-          </div>
-          <div onClick={signupClick} className="ui fluid large blue submit button">Submit</div>
-        </div>
-      </form> */}
     </>
   );
 }

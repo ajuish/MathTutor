@@ -69,7 +69,7 @@ function Fundamentals(){
    let question
    
    if (symbol === '-'){
-      if (negative == false){
+      if (negative === false){
          if (num2 > num1){
             question = `${num2} ${symbol} ${num1}`
          }
@@ -180,7 +180,7 @@ function Fundamentals(){
                   <input type='radio' value='1000' name='digits'/> Three Digits
                </div>
             </div>
-           {(currentOperation == 'subtraction') ? 
+           {(currentOperation === 'subtraction') ? 
                <div className='ui center aligned'> 
                   <h4>Include Negative Results?</h4>
                   <Radio toggle className='ui center aligned' onChange={()=>setNegative(!negative)}/>

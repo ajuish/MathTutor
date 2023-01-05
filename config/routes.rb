@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   # user routes
   post '/signup', to: "users#create"
-  resources :users, only: [:index, :show, :update]
+  resources :users
   
   # topic routes
   resources :topics, only: [:index, :show]
