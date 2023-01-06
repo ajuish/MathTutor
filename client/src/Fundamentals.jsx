@@ -285,7 +285,7 @@ function Fundamentals(){
                className='center aligned content' 
                onChange={(e)=> setDigits(Number(e.target.value))}
             >
-               <h4>How many digits?</h4>
+               <h4>How Many Digits?</h4>
                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
                   <div>
                      <input type='radio' value='10' name='digits' defaultChecked/> Single Digit
